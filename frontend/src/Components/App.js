@@ -38,23 +38,19 @@ class App extends React.Component {
 
   render () {
     return(
-      <div className="App">
+      <div className="container-fluid">
         <div className="row">
           <nav>
-          <div className="nav-wrapper blue-darken-1">
-            <a href="/" class="brand-logo">Logo</a>
-          </div>
-        </nav>
-        </div>
-          <div className="row">
-            <div className="col s3"><StuffList
-            stuff={this.state.stuff}
-              updateCurrentStuff={this.updateCurrentStuff}
-              />
+            <div className="nav-wrapper blue-darken-1">
+              <a href="/" className="brand-logo">Shasta</a>
             </div>
-          <div className="col s9"><StuffSingle
-          stuff={this.state.currentStuff}
-          /></div>
+          </nav>
+          </div>
+          <div className="row">
+            <div className="col s3"><StuffList stuff={this.state.stuff}
+              updateCurrentStuff={this.updateCurrentStuff}/>
+            </div>
+          <div className="col s9"><StuffSingle stuff={this.state.currentStuff}/></div>
         </div>
         <div className="row">
           <div className="col s12"><StuffForm /></div>
