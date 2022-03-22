@@ -36,9 +36,9 @@ class App extends React.Component {
     })
   }
 
-  render () {
-    return(
-      <div className="container-fluid">
+  render() {
+    return (
+      <div className="App">
         <div className="row">
           <nav>
             <div className="nav-wrapper blue-darken-1">

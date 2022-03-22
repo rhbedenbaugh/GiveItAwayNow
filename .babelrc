@@ -1,9 +1,8 @@
 {
     "presets": [
         "@babel/preset-env",
-        "stage-0",
-        "env",
         "@babel/preset-react",
         "@babel/plugin-syntax-jsx"
-    ]
+    ],
+    "plugins": ["transform-class-properties"]
 }
