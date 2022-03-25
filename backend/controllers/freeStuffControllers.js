@@ -3,10 +3,10 @@ import { FreeStuffSchema } from '../models/freeStuffModel.js';
 
 const FreeStuff = new mongoose.model('FreeStuff', FreeStuffSchema);
 
-export const addNewFreeStuff = (req,res) => {
+export const addNewFreeStuff = async (req,res) => {
     let newFreeStuff = new FreeStuff(req.body);
 
-    newFreeStuff.save((err, FreeStuff) => {
+    await newFreeStuff.save((err, FreeStuff) => {
         if (err) {
             res.send(err);
         }

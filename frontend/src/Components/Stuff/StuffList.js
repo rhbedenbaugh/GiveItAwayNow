@@ -1,10 +1,11 @@
 import React from 'react';
 
 const StuffList = (props) => {
+    
     return ( 
     <div>
         <ul className="collection with-header">
-            <li className="collection-header"><h4>Stuff</h4></li>
+            <li className="collection-header"><h4>Freebies List</h4></li>
             {props.stuff.map((item) => (
                 <a href="#!" className="collection-item" key={item._id}
                 onClick={props.updateCurrentStuff.bind(this,item)}>{item.title}</a>

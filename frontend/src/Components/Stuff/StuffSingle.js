@@ -6,14 +6,12 @@ const StuffSingle = (props) => {
         <div classNameName="col s12">
           <div className="card">
             <div className="card-image">
-              <img src="free_logo.png" alt="free logo"></img>
+              <img src="BSSM.jpg" alt="BSSM"></img>
+            </div><div>
               <span className="card-title">{props.stuff.title}</span>
             </div>
             <div className="card-content">
-              <p>Posted By {props.stuff.postedBy} on {props.stuff.created_date}</p>
-            </div>
-            <div className="card-action">
-              Email: {props.stuff.email}
+              <p>Offered to you fpr FREE by    {props.stuff.postedBy}. Call 'em at...{props.stuff.email}</p>
             </div>
           </div>
         </div>
