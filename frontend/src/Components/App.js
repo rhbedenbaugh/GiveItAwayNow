@@ -5,6 +5,8 @@ import StuffList from "./Stuff/StuffList";
 import StuffSingle from "./Stuff/StuffSingle";
 import StuffForm from "./Stuff/StuffForm";
 
+const url = 'http://localhost:4000/freestuff';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -22,8 +24,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const url = 'http://localhost:4000/freestuff';
-
     axios.get(url)
     .then((Response) => {
       this.setState({
@@ -42,19 +42,28 @@ class App extends React.Component {
 
   submitStuff(event) {
     event.preventDefault();
-    // console.log(this.title.value, this.postedBy.value, this.email.value);
-    // console.log("hi");
-    axios.post('http://localhost:4000/freestuff', {
-        title: this.state.title,
-        postedBy: this.state.postedBy,
-        email: this.state.email
-    })
+    axios.post(url, {
+      title: this.state.title,
+      postedBy: this.state.postedBy,
+      email: this.state.email
+    },
+    // event.target.reset()
+    )
     .then((response) => {
-        console.log(response);
+      console.log(response)
+      axios.get(url)
+      .then((Response) => {
+        this.setState({
+          stuff: Response.data
+        })
+      })
     })
+    // .then (event.target.reset)
     .catch((error) => {
-        console.log(error);
+      console.log(error.message);
     });
+    event.preventDefault();
+    this.setState({title: '', postedBy: '', email: ''})
   }
 
   updateCurrentStuff(item) {
@@ -67,9 +76,15 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="row">
-          <nav>
-            <div className="nav-wrapper blue-darken-1">
-              <a href="/" className="brand-logo" align="center">    "How Come Everybody Wanna Keep It Like A Kaiser?"</a>
+          <nav className="col s12">
+            <div className="nav-wrapper">
+              <a href="/" className="brand-logo">
+                <marquee scrollamount="4px" direction="down" width="181%" height="65" behavior="alternate" >
+                  <marquee>
+                    <h4>How Come Everybody Wanna Keep It Like A Kaiser? Give it away now!</h4>
+                  </marquee>
+                </marquee>
+              </a>
             </div>
           </nav>
           </div>
@@ -79,7 +94,13 @@ class App extends React.Component {
             </div>
           <div className="col s8"><StuffSingle stuff={this.state.currentStuff}/></div>
         <div className="row">
-          <div className="col s12"><StuffForm submitStuff={this.submitStuff} title={this.state.title} postedBy={this.state.postedBy} email={this.state.email} setState={this.setState} handleOnChange={this.handleOnChange}/></div>
+          <div className="col s12"><StuffForm 
+            submitStuff={this.submitStuff}
+            title={this.state.title}
+            postedBy={this.state.postedBy}
+            email={this.state.email}
+            setState={this.setState}
+            handleOnChange={this.handleOnChange}/></div>
         </div>
       </div></div>
     );

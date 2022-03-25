@@ -24,10 +24,10 @@ app.use(cors());
 routes(app);
 
 app.get('/',(req,res) => 
-    res.send(`Free Stuff 4 U app is running on ${PORT}`)
+    res.send(`Give It Away Now app is running on port ${PORT}`)
 );
 
 app.listen(PORT, () =>
-    console.log(`Free Stuff 4 U server is running on ${PORT}`)
+    console.log(`Give It Away Now server is running! Check port ${PORT}!`)
 );
 
