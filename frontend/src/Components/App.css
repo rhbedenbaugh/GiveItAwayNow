@@ -1,1 +1,13 @@
+.a {
+  color: red
+}
 
+.collection-item {
+  background: transparent;
+  font-size: '12px';
+  border-style: none;
+}
+
+.collection-header{
+  border-style: hidden;
+}

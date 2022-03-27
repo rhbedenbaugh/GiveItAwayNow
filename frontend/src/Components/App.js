@@ -47,23 +47,29 @@ class App extends React.Component {
       postedBy: this.state.postedBy,
       email: this.state.email
     },
-    // event.target.reset()
     )
     .then((response) => {
       console.log(response)
       axios.get(url)
       .then((Response) => {
         this.setState({
-          stuff: Response.data
+          stuff: Response.data,
+          title: '',
+          postedBy: '',
+          email: ''
         })
       })
     })
-    // .then (event.target.reset)
+    .then (event.target.reset)
     .catch((error) => {
       console.log(error.message);
     });
     event.preventDefault();
-    this.setState({title: '', postedBy: '', email: ''})
+    this.setState({
+      title: '',
+      postedBy: '',
+      email: ''
+    })
   }
 
   updateCurrentStuff(item) {
@@ -75,11 +81,17 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="row">
+        <div className="row background=#AA0000">
           <nav className="col s12">
             <div className="nav-wrapper">
               <a href="/" className="brand-logo">
-                <marquee scrollamount="4px" direction="down" width="181%" height="65" behavior="alternate" >
+                <marquee 
+                  background="#AA0000"
+                  scrollamount="4px"
+                  direction="down"
+                  width="220%"
+                  height="65"
+                  behavior="alternate" >
                   <marquee>
                     <h4>How Come Everybody Wanna Keep It Like A Kaiser? Give it away now!</h4>
                   </marquee>
@@ -89,20 +101,24 @@ class App extends React.Component {
           </nav>
           </div>
           <div className="row">
-            <div className="col s4"><StuffList stuff={this.state.stuff}
+            <div className="col s4"><StuffList
+              stuff={this.state.stuff}
               updateCurrentStuff={this.updateCurrentStuff}/>
             </div>
-          <div className="col s8"><StuffSingle stuff={this.state.currentStuff}/></div>
-        <div className="row">
-          <div className="col s12"><StuffForm 
-            submitStuff={this.submitStuff}
-            title={this.state.title}
-            postedBy={this.state.postedBy}
-            email={this.state.email}
-            setState={this.setState}
-            handleOnChange={this.handleOnChange}/></div>
+          <div className="col s8"><StuffSingle
+            stuff={this.state.currentStuff}/>
+          </div>
+          <div className="row">
+            <div className="col s12"><StuffForm 
+              submitStuff={this.submitStuff}
+              title={this.state.title}
+              postedBy={this.state.postedBy}
+              email={this.state.email}
+              setState={this.setState}
+              handleOnChange={this.handleOnChange}/></div>
+          </div>
         </div>
-      </div></div>
+      </div>
     );
   }
 }

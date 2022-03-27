@@ -11,7 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'build.bundle.js',
     assetModuleFilename: '[name][ext]',
-    clean: true,
+    cache: false,
   },
   devtool: 'inline-source-map',
   devServer: {

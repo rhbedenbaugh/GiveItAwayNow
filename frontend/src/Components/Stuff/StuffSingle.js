@@ -2,18 +2,17 @@ import React from 'react';
 
   
 const StuffSingle = (props) => {
+  const link = 'https://redhotchilipeppers.com/';
   return (
     <div className="row">
       <div className="col s12">
-        <div className="card">
+        <div className="card transparent">
           <div className="card-image">
-            <img src="BSSM.jpg" alt="BSSM"></img>
-          </div>
-          <div>
-            <span className="card-title">{props.stuff.title}</span>
+          <a href={link} target="new">
+             <img src="BSSM.jpg" alt="BSSM"></img></a>
           </div>
           <div className="card-content">
-            <p>Offered FREE to you by {props.stuff.postedBy}. Talk to...{props.stuff.email}</p>
+            <h4><p>{props.stuff.title} ={'>'} Email {props.stuff.postedBy} at {props.stuff.email}</p></h4>
           </div>
         </div>
       </div>

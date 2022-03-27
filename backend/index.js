@@ -5,11 +5,12 @@ import cors from 'cors';
 import routes from './routes/freeStuffRoutes.js';
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
+const uri = "mongodb+srv://memories:memories123@memories.nv7di.mongodb.net/Cluster0?retryWrites=true&w=majority";
 
 // mongo connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/freeStuff4UDB', {
+mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
