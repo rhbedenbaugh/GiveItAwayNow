@@ -8,11 +8,17 @@ const StuffList = (state) => {
     <div style={{overflowY: "auto", maxHeight:"920px"}}>
         <ul className="collection with-header">
             <li className="collection-header center transparent"
-            rel="icon"
-            type="image/jpg">
+                rel="icon"
+                type="image/jpg">
                 <a href={link} target="new">
-                    <img className="img" src="CD-RED-HOT-CHILI-PEPPERS-BLOOD-SUGAR-SEX-MAGIK-NUOVO-ORIGINALE-big-1928-340.jpg" alt="logo" max-width="60px"></img>
-                </a><h3 color="red">Freebies List</h3>
+                    <img className="img" align="left" src="CD-RED-HOT-CHILI-PEPPERS-BLOOD-SUGAR-SEX-MAGIK-NUOVO-ORIGINALE-big-1928-340.jpg" alt="logo" max-width="60px"></img>
+                </a>
+                <iframe width="270" height="152" align="right"
+                src="https://www.youtube.com/embed/YfsMQO12Hfc"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+                <h3 color="red" align="left">Freebies List</h3>
             </li>
             {state.stuff.map((item) => (
                 <h5><a href="#!" className="collection-item center transparent" key={item._id}
