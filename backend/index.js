@@ -29,6 +29,6 @@ app.get('/',(req,res) =>
 );
 
 app.listen(PORT, () =>
-    console.log(`Give It Away Now server is running! Check port ${PORT}!`)
+    console.log(`Give It Away Now server is running!`)
 );
 
